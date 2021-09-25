@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { routes } from "src/configs/routes";
 import { ROUTES } from "src/configs/constants";
+import 'src/styles/global.scss';
 
 const App: React.VFC = () => {
   return (
