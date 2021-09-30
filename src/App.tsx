@@ -1,34 +1,20 @@
 import React, { Suspense } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  Link,
-} from "react-router-dom";
-import { routes } from "src/configs/routes";
-import { ROUTES } from "src/configs/constants";
-import 'src/styles/global.scss';
+import { Routes, Route, useRoutes } from "react-router-dom";
+import { routes as rous } from "src/configs/routes";
+import "src/styles/global.scss";
+import Pets from "./features/pet/pages";
+import Layout from "./layout/Layout";
 
 const App: React.VFC = () => {
+  const routing = useRoutes(rous);
   return (
-    <div className="App">
-      <Suspense fallback={<div>Loading ...</div>}>
-        <Router>
-          <ul>
-            <li>
-              <Link to={ROUTES.pet}></Link>
-            </li>
-          </ul>
-          <Switch>
-            <Redirect exact from="/" to={ROUTES.pet} />
-            {routes.map((route, i) => (
-              <Route key={i} path={route.path} component={route.component} />
-            ))}
-          </Switch>
-        </Router>
-      </Suspense>
-    </div>
+    <Suspense fallback={<div>Loading ...</div>}>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Pets />} />
+        </Routes>
+      </Layout>
+    </Suspense>
   );
 };
 
