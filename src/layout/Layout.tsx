@@ -1,19 +1,18 @@
 import React, { ReactNode, VFC } from "react";
+import Header from "src/components/Header";
 
 interface Props {
-  meta: ReactNode;
   children: ReactNode;
 }
 
-const Main: VFC<Props> = ({ meta, children }: Props) => {
+const Layout: VFC<Props> = ({ children }: Props) => {
   return (
     <>
-      {meta}
-      {/* <Header /> */}
+      <Header />
       {children}
       {/* <Footer /> */}
     </>
   );
 };
 
-export { Main };
+export default Layout;
