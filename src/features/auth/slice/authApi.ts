@@ -1,5 +1,5 @@
 // import { API_ENDPOINT } from '@src/configs';
-import axiosRequest from 'src/utils/axiosRequest';
+import axiosRequest from "src/utils/axiosRequest";
 
 class AuthApi {
   authenApiEndpoint: string;
@@ -10,10 +10,10 @@ class AuthApi {
 
   login(data: any) {
     return axiosRequest(
-      this.authenApiEndpoint + '/login',
+      this.authenApiEndpoint + "/login",
       null,
-      'POST',
-      '',
+      "POST",
+      "",
       data
     );
   }
